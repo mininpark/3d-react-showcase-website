@@ -2,3 +2,6 @@
 @import "./assets/scss/_layout.scss";
 @import "./assets/scss/_fonts.scss";
 @import "./assets/scss/_variables.scss";
+
+/* PAGES */
+@import "./assets/scss/pages/home.scss";
