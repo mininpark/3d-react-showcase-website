@@ -1,0 +1,19 @@
+.customizer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  &__tabs {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+  }
+  &__back-btn {
+    position: absolute;
+    z-index: 10;
+    top: 5%;
+    right: 5%;
+
+  }
+}

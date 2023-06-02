@@ -31,7 +31,11 @@ const Home = () => {
                 customization tool. <strong>Unleash your imagination</strong>{' '}
                 and define your own style.
               </p>
-              <CustomButton />
+              <CustomButton
+                type="filled"
+                title="Customize it"
+                handleClick={() => (state.intro = false)}
+              />
             </motion.div>
           </motion.div>
         </motion.section>

@@ -3,5 +3,8 @@
 @import "./assets/scss/_fonts.scss";
 @import "./assets/scss/_variables.scss";
 
+/* ATOMS */
+@import "./assets/scss/atoms/custom-button.scss";
 /* PAGES */
 @import "./assets/scss/pages/home.scss";
+@import "./assets/scss/pages/customizer.scss";
