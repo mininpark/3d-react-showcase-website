@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 import {
@@ -5,8 +6,8 @@ import {
   headContentAnimation,
   headTextAnimation,
   slideAnimation,
-} from '../config/motion';
-import state from '../store';
+} from '../config/motion.js';
+import state from '../store/index.js';
 import { CustomButton } from '../components';
 
 const Home = () => {
@@ -25,7 +26,7 @@ const Home = () => {
                 LET&apos;S <br /> DO IT{' '}
               </h1>
             </motion.div>
-            <motion.div {...headContentAnimation} className="description">
+            <motion.div {...headContentAnimation} className="home__description">
               <p>
                 Create your unique and exclusive shirt with our brand-new 3D
                 customization tool. <strong>Unleash your imagination</strong>{' '}

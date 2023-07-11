@@ -5,24 +5,23 @@
     object-fit: contain;
   }
   &__content {
-    br {
+    > br {
       display: none;
       @include xl {
         display: block;
       }
     }
-    .description {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      p {
-        max-width: 28rem;
-        font-weight: 400;
-        color: gray;
-        font-size: 1rem;
-        line-height: 1.5rem;
-
-      }
+  }
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    > p {
+      max-width: 28rem;
+      font-weight: 400;
+      color: gray;
+      font-size: 1rem;
+      line-height: 1.5rem;
     }
   }
 }

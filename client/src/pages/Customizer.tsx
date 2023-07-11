@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
-import state from '../store';
+import state from '../store/index.js';
 import config from '../config/config';
 import { download } from '../assets';
 import { downloadCanvasToImage, reader } from '../config/helpers';
@@ -23,10 +23,10 @@ const Customizer = () => {
       {!snap.intro && (
         <>
           <motion.div className="customizer" {...slideAnimation('left')}>
-            <div className="customizer__tabs">
+            <div className="customizer__wrapper">
               <div className="editortabs-container tabs">
                 {EditorTabs.map((tab) => (
-                  <Tab key={tab.name} tab={tab} handleClick={() => {}} />
+                  <Tab key={tab.name} tab={tab} handleClick={() => { }} />
                 ))}
               </div>
             </div>
@@ -37,6 +37,11 @@ const Customizer = () => {
               title="Go Back"
               handleClick={() => (state.intro = true)}
             />
+          </motion.div>
+          <motion.div className="filtertabs-container" {...slideAnimation('up')}>
+            {FilterTabs.map((tab) => (
+              <Tab key={tab.name} tab={tab} isFilterTab isActiveTab="" handleClick={() => { }} />
+            ))}
           </motion.div>
         </>
       )}
