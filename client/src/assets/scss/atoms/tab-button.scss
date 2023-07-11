@@ -1,0 +1,23 @@
+.tab-btn {
+  border-radius: 6px;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  &--filter {
+    border-radius: 12px;
+    @extend .glassmorhism !optional;
+  }
+  &__icon {
+    width: 92%;
+    height: 92%;
+    object-fit: contain;
+    &--filter {
+      width: 66%;
+      height: 66%;
+    }
+  }
+}

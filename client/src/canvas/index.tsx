@@ -13,8 +13,8 @@ const CanvasModel = () => {
       gl={{ preserveDrawingBuffer: true }}
       className="canvas-model__wrapper">
       <ambientLight intensity={0.5} />
-      <Environment
-      />
+      {/* <Environment preset="forest" blur={0.5}
+      /> */}
       <CameraRig>
         <Backdrop />
         <Center>
