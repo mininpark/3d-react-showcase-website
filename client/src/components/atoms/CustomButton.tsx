@@ -2,10 +2,10 @@ import { useSnapshot } from 'valtio';
 import PropTypes from 'prop-types';
 import state from '../../store';
 
-const CustomButton = (props) => {
+const CustomButton = (props: any) => {
   const snap = useSnapshot(state);
 
-  const generateStyle = (type) => {
+  const generateStyle = (type: any) => {
     if (type === 'filled') {
       return {
         backgroundColor: snap.color,

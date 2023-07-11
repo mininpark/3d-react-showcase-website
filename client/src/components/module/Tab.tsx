@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Tab = () => {
+const Tab = (props: any) => {
   return (
-    <div>Tab</div>
+    <div>{props.tab}</div>
   )
 }
 
