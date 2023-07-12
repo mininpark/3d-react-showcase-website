@@ -1,6 +1,7 @@
 import { useSnapshot } from 'valtio';
 import PropTypes from 'prop-types';
 import state from '../../store';
+import { getContrastingColor } from '../../config/helpers';
 
 const CustomButton = (props: any) => {
   const snap = useSnapshot(state);
@@ -9,8 +10,14 @@ const CustomButton = (props: any) => {
     if (type === 'filled') {
       return {
         backgroundColor: snap.color,
-        color: '#fff',
+        color: getContrastingColor(snap.color),
       };
+    } else if (type === 'outline') {
+      return {
+        borderWidth: '1px',
+        borderColor: snap.color,
+        color: snap.color,
+      }
     }
   };
   return (
@@ -28,6 +35,6 @@ export default CustomButton;
 
 CustomButton.propTypes = {
   title: PropTypes.string,
-  type: PropTypes.oneOf(['filled', '']),
+  type: PropTypes.oneOf(['filled', 'outline']),
   handleClick: PropTypes.func,
 };

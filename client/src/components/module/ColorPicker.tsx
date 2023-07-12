@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { SketchPicker } from 'react-color';
+import { useSnapshot } from 'valtio';
+
+import state from '../../store';
 
 const ColorPicker = () => {
-  return (
-    <div>ColorPicker</div>
-  )
-}
+  const snap = useSnapshot(state);
 
-export default ColorPicker
+  return (
+    <div className="picker__color">
+      <SketchPicker
+        color={snap.color}
+        disableAlpha
+        // presetColor
+        onChange={(color) => state.color = color.hex} />
+    </div>
+  );
+};
+
+export default ColorPicker;

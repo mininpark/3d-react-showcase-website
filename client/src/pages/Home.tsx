@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 import {
@@ -8,7 +7,7 @@ import {
   slideAnimation,
 } from '../config/motion.js';
 import state from '../store/index.js';
-import { CustomButton } from '../components';
+import { CustomButton } from '../components/index.js';
 
 const Home = () => {
   // useSnapshot: Create a local snapshot that catches changes. This hook actually returns a wrapped snapshot in a proxy for render optimization instead of a plain object compared to snapshot() method.
