@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 import state from '../store/index.js';
@@ -17,6 +17,7 @@ import {
 
 const Customizer = () => {
   const snap = useSnapshot(state);
+
   const [file, setFile] = useState('');
   const [prompt, setPrompt] = useState('');
   const [generatingImg, setGeneratingImg] = useState(false);
@@ -26,7 +27,7 @@ const Customizer = () => {
     stylishShirt: false,
   });
 
-  // to show tab content depending on the active tab
+  // to show tab content depending on the active tab dynamically
   const generateTabContent = () => {
     // track active tab
     switch (activeEditorTab) {
@@ -54,7 +55,18 @@ const Customizer = () => {
     if (!prompt) return alert('please enter a prompt');
 
     try {
-      // call our backend to generate the ai picker
+      setGeneratingImg(true);
+      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt,
+        }),
+      });
+      const data = await response.json();
+      handleDecals(type, `data:image/png;base64, ${data.photo}`);
     } catch (error) {
       alert(error);
     } finally {
@@ -87,7 +99,7 @@ const Customizer = () => {
     }
     // after setting the state, activeFilterTab is updated
 
-    setActiveEditorTab((prevState) => {
+    setActiveFilterTab((prevState) => {
       return {
         ...prevState,
         [tabName]: !prevState[tabName], // to toggle on and off
@@ -116,7 +128,6 @@ const Customizer = () => {
                     handleClick={() => setActiveEditorTab(tab.name)}
                   />
                 ))}
-                {/* to show tab contents below */}
                 {generateTabContent()}
               </div>
             </div>

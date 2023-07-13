@@ -18,8 +18,7 @@ dist-ssr
 *.env.example
 *.env.local
 *.env.staging
-server/.env
-server/.env
+/vars
 
 # Editor directories and files
 .vscode/*
