@@ -12,27 +12,28 @@ const config = new Configuration({
 
 const openai = new OpenAIApi(config);
 
-// DALL·E 2 is an AI system that can create realistic images and art from a description in natural language.
 router.route('/').get((req, res) => {
-  res.status(200).json({ message: 'hello from dall.e routes' });
-});
+  res.status(200).json({ message: "Hello from DALL.E ROUTES" })
+})
 
 router.route('/').post(async (req, res) => {
   try {
     const { prompt } = req.body;
+
     const response = await openai.createImage({
       prompt,
       n: 1,
       size: '1024x1024',
-      response_format: 'b64_json',
+      response_format: 'b64_json'
     });
 
     const image = response.data.data[0].b64_json;
+
     res.status(200).json({ photo: image });
-    
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: 'something went wrong' });
+    console.error(error);
+    res.status(500).json({ message: "Something went wrong" })
   }
-});
+})
+
 export default router;
